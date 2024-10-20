@@ -69,13 +69,15 @@ public class AccountServiceTest {
 
     @Test
     public void modelTest() {
-        Transaction withdrawalTransaction = new WithdrawalTransaction(200.0);
+        var withdrawalTransaction = new WithdrawalTransaction(200.0);
         Assertions.assertEquals(200, withdrawalTransaction.getAmount());
 
-        Transaction depositTransaction = new DepositTransaction(200.0);
+        var depositTransaction = new DepositTransaction(200.0);
         Assertions.assertEquals(200, depositTransaction.getAmount());
 
         var billPaymentTransaction = new BillPaymentTransaction(200.0, "test");
         Assertions.assertEquals("test", billPaymentTransaction.getPayee());
+
+        Assertions.assertEquals("BillPaymentTransaction", billPaymentTransaction.toString().substring(0, 22));
     }
 }

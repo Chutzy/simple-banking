@@ -1,6 +1,9 @@
 package com.example.simplebanking.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,5 +29,9 @@ public abstract class Transaction {
     }
 
     public Transaction() {
+    }
+
+    public String toString(){
+        return this.getClass().getSimpleName() + " account number: " + this.getAccountNumber() + ", date: " + this.getDate() + ", amount: " + this.getAmount();
     }
 }
